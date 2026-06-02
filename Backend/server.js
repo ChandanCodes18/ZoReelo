@@ -9,5 +9,5 @@ require('dotenv').config()
 mongodb()
 
 app.listen(3000,()=>{
-    console.log("Server start hua kya bhai")
+    console.log("Server Started")
 })

@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
 const PartnerSchema = new mongoose.Schema({
-    Name:{
-        type: String,
-        required: true 
-    },
     Email:{
         type: String,
         required: true
@@ -12,6 +8,26 @@ const PartnerSchema = new mongoose.Schema({
     Password:{
         type: String,
         required: true
+    },
+    restaurantName:{
+        type:String,
+        required:true
+    },
+    OwnerName:{
+        type:String,
+        required:true
+    },
+    Phone:{
+        type:Number,
+        required:true
+    },
+    Address:{
+        type:String,
+        required:true
+    },
+    CuisineType:{
+        type:String,
+        required:true
     }
 },
 {

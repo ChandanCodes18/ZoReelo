@@ -1,0 +1,328 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.auth-container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 28px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(17, 17, 17, 0.96), rgba(42, 59, 44, 0.9)),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1800&q=80") center/cover;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.auth-container::before {
+  content: "Zoreelo";
+  position: fixed;
+  top: 18px;
+  left: clamp(18px, 4vw, 44px);
+  z-index: 1;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.auth-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.72)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 430px);
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: clamp(24px, 5vw, 40px);
+  background: rgba(17, 17, 17, 0.64);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(22px);
+}
+
+.auth-card h1 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.auth-card h1::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 5px;
+  margin-top: 18px;
+  border-radius: 8px;
+  background: #f7c948;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
+}
+
+.auth-card form,
+.auth-form {
+  margin-top: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.form-group input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 12px 13px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #f7c948;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 0 3px rgba(247, 201, 72, 0.18);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.btn-primary {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 6px;
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 16px;
+  color: #111;
+  background: #f7c948;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+}
+
+.btn-primary:disabled {
+  opacity: 0.64;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 116, 116, 0.45);
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  background: rgba(140, 28, 28, 0.48);
+  font-size: 0.92rem;
+}
+
+.auth-footer {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.94rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.auth-footer p {
+  margin: 8px 0 0;
+}
+
+.auth-footer a {
+  color: #f7c948;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  color: #fff;
+}
+
+.partner-auth {
+  background:
+    linear-gradient(135deg, rgba(17, 17, 17, 0.94), rgba(69, 53, 24, 0.86)),
+    url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=80") center/cover;
+}
+
+.partner-auth .auth-card {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.82fr) minmax(320px, 1fr);
+  gap: 28px;
+  width: min(100%, 900px);
+  padding: 18px;
+  background: rgba(13, 13, 13, 0.7);
+}
+
+.partner-auth-panel {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 560px;
+  border-radius: 8px;
+  padding: 26px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.78)),
+    url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80") center/cover;
+}
+
+.partner-auth-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(247, 201, 72, 0.32);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.partner-kicker {
+  position: relative;
+  width: fit-content;
+  margin: 0 0 12px;
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: #111;
+  background: #f7c948;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.partner-auth-panel h2 {
+  position: relative;
+  max-width: 8ch;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  line-height: 0.94;
+  letter-spacing: 0;
+}
+
+.partner-auth-panel p:not(.partner-kicker) {
+  position: relative;
+  max-width: 310px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.partner-auth-form {
+  align-self: center;
+  padding: clamp(12px, 3vw, 26px);
+}
+
+.partner-auth .auth-card h1::after {
+  width: 92px;
+  background: linear-gradient(90deg, #f7c948, #fff);
+}
+
+.partner-auth .btn-primary {
+  background: #fff;
+}
+
+.partner-auth .btn-primary:hover:not(:disabled) {
+  background: #f7c948;
+}
+
+@media (max-width: 560px) {
+  .auth-container {
+    align-items: end;
+    padding: 76px 14px 14px;
+  }
+
+  .auth-container::before {
+    top: 16px;
+    left: 16px;
+    font-size: 1.18rem;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-height: calc(100vh - 90px);
+    padding: 22px;
+  }
+}
+
+@media (max-width: 860px) {
+  .partner-auth .auth-card {
+    display: block;
+    width: min(100%, 500px);
+    padding: 18px;
+  }
+
+  .partner-auth-panel {
+    position: relative;
+    top: auto;
+    min-height: 230px;
+    margin-bottom: 18px;
+  }
+
+  .partner-auth-panel h2 {
+    max-width: 11ch;
+    font-size: clamp(2.1rem, 9vw, 3.4rem);
+  }
+
+  .partner-auth-form {
+    padding: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  .partner-auth {
+    align-items: start;
+    overflow-y: auto;
+  }
+
+  .partner-auth .auth-card {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .partner-auth-panel {
+    min-height: 190px;
+    padding: 20px;
+  }
+}

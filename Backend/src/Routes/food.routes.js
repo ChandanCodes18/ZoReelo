@@ -17,11 +17,10 @@ router.post('/',
     foodController.createFood
 )
 
-/* GET /api/food [protected] */
+/* GET /api/food [Protected]*/
 router.get('/',
     authmiddleware.authUserMiddleware,
     foodController.getFoodItems
 )
-
 
 module.exports = router
