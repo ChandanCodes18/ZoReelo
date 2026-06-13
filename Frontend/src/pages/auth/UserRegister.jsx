@@ -26,7 +26,7 @@ const UserRegister = () => {
         password 
       };
 
-      const response = await axios.post('http://localhost:3000/api/auth/user/register', userData, {
+      const response = await axios.post('https://zoreelo-backend.onrender.com/api/auth/user/register', userData, {
         withCredentials: true
       });
 

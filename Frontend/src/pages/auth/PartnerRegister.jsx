@@ -32,7 +32,7 @@ const PartnerRegister = () => {
     try {
       // Call API using Axios
       const response = await axios.post(
-        "http://localhost:3000/api/auth/food-Partner/register",
+        "https://zoreelo-backend.onrender.com/api/auth/food-Partner/register",
         {
           restaurantName,
           ownerName,

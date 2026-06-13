@@ -19,7 +19,7 @@ const PartnerLogin = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/food-Partner/login', {
+      const response = await axios.post('https://zoreelo-backend.onrender.com/api/auth/food-Partner/login', {
         email,
         password
       }, {
