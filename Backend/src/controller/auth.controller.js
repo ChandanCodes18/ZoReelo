@@ -5,10 +5,21 @@ const jwt = require('jsonwebtoken')
 
 async function registerUSer(req,res){
     try {
-        const {name, email, phone, password} = req.body
+        const {name, email, phone, password, Fullname, Email, Phone, Password} = req.body
+
+        const userName = name || Fullname
+        const userEmail = email || Email
+        const userPhone = phone || Phone
+        const userPassword = password || Password
+
+        if(!userName || !userEmail || !userPhone || !userPassword){
+            return res.status(400).json({
+                message: 'Name, email, phone and password are required'
+            })
+        }
 
         const Userexist = await usermodel.findOne({
-            Email: email
+            Email: userEmail
         })
         if(Userexist){
             return res.status(400).json({
@@ -16,12 +27,12 @@ async function registerUSer(req,res){
             })  
         }
 
-        const hashPass = await bcrypt.hash(password, 10);
+        const hashPass = await bcrypt.hash(userPassword, 10);
 
         const NewUSer = await usermodel.create({
-            Fullname: name,
-            Email: email,
-            Phone: phone,
+            Fullname: userName,
+            Email: userEmail,
+            Phone: userPhone,
             Password: hashPass
         })
 
