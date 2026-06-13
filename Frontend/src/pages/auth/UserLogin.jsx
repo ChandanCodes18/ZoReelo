@@ -17,6 +17,9 @@ const UserLogin = () => {
         password
       })
 
+      const data = response.data;
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('userType', 'user');
       // console.log('Login success:', response.data);
       navigate('/');
     } catch(err) {

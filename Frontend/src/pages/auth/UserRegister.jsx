@@ -28,6 +28,9 @@ const UserRegister = () => {
 
       const response = await api.post('/api/auth/user/register', userData);
 
+      const data = response.data;
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('userType', 'user');
       console.log('Registration success:', response.data);
       console.log('Response status:', response.status);
       navigate('/');
