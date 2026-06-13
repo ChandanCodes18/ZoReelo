@@ -4,7 +4,7 @@ import UserLogin from '../pages/auth/UserLogin';
 import UserRegister from '../pages/auth/UserRegister';
 import PartnerLogin from '../pages/auth/PartnerLogin';
 import PartnerRegister from '../pages/auth/PartnerRegister';
-import Home from '../pages/general/home';
+import Home from '../pages/general/Home';
 import CreateFood from '../pages/general/CreateFood'
 import PartnerStore from '../pages/general/PartnerStore'
 import CartDrawer from '../components/CartDrawer'
