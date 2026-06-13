@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../../styles/Auth.css';
-import axios from 'axios';
+import api from '../../api';
 
 const PartnerLogin = () => {
   const [email, setEmail] = useState('');
@@ -19,11 +19,9 @@ const PartnerLogin = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://zoreelo-backend.onrender.com/api/auth/food-Partner/login', {
+      const response = await api.post('/api/auth/food-Partner/login', {
         email,
         password
-      }, {
-        withCredentials: true
       })
 
       const data = response.data;

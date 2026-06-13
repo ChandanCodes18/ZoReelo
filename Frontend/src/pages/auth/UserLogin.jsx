@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import "../../styles/Auth.css";
-import axios from "axios";
+import api from "../../api";
 
 const UserLogin = () => {
   const navigate = useNavigate();
@@ -12,11 +12,9 @@ const UserLogin = () => {
     const password = e.target.password.value;
 
     try {
-      const response = await axios.post('https://zoreelo-backend.onrender.com/api/auth/user/login', {
+      const response = await api.post('/api/auth/user/login', {
         email,
         password
-      }, {
-        withCredentials: true
       })
 
       // console.log('Login success:', response.data);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../../styles/Auth.css";
-import axios from "axios";
+import api from "../../api";
 
 const PartnerRegister = () => {
   const navigate = useNavigate();
@@ -31,8 +31,8 @@ const PartnerRegister = () => {
 
     try {
       // Call API using Axios
-      const response = await axios.post(
-        "https://zoreelo-backend.onrender.com/api/auth/food-Partner/register",
+      const response = await api.post(
+        "/api/auth/food-Partner/register",
         {
           restaurantName,
           ownerName,
@@ -42,10 +42,7 @@ const PartnerRegister = () => {
           address,
           cuisineType,
           userType: "partner",
-        },
-        {
-          withCredentials: true,
-        },
+        }
       );
 
       const data = response.data;

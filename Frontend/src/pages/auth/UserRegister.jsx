@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../../styles/Auth.css';
-import axios from 'axios';
+import api from '../../api';
 
 const UserRegister = () => {
   const [error, setError] = useState('');
@@ -26,9 +26,7 @@ const UserRegister = () => {
         password 
       };
 
-      const response = await axios.post('https://zoreelo-backend.onrender.com/api/auth/user/register', userData, {
-        withCredentials: true
-      });
+      const response = await api.post('/api/auth/user/register', userData);
 
       console.log('Registration success:', response.data);
       console.log('Response status:', response.status);

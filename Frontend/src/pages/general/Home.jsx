@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import '../../styles/Home.css'
-import axios from 'axios'
+import api from '../../api'
 import { useCart } from '../../context/CartContext'
 
 function normalizePartner(partner) {
@@ -44,9 +44,7 @@ const Home = () => {
 
     async function loadFoodItems() {
       try {
-        const response = await axios.get('http://localhost:3000/api/food', {
-          withCredentials: true,
-        })
+        const response = await api.get('/api/food')
 
         if (!ignore) {
           setFoodItems(response.data.foodItems || [])

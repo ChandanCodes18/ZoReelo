@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import api from '../../api'
 import '../../styles/Home.css'
 
 const CreateFood = () => {
@@ -29,8 +29,7 @@ const CreateFood = () => {
     formData.append('Video', video)
 
     try {
-      await axios.post('http://localhost:3000/api/food', formData, {
-        withCredentials: true,
+      await api.post('/api/food', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

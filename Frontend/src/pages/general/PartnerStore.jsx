@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
-import axios from 'axios'
+import api from '../../api'
 import { useCart } from '../../context/CartContext'
 import '../../styles/Home.css'
 
@@ -11,7 +11,7 @@ const PartnerStore = () => {
   const [foodItems, setFoodItems] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/food')
+    api.get('/api/food')
       .then((response) => {
         setFoodItems(response.data.foodItems || [])
       })
